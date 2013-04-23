@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<dataset>
+	<league id="1" name="Premiership" />
+	<league id="2" name="Bundesliga" />
+	
+	<team name="Arsenal" league_id="1" />
+	<team name="Tottenham" league_id="1" />
+	<team name="Bayern Munchen" league_id="2" />
+	<team name="HSV" league_id="2" />	
+</dataset>
