@@ -24,4 +24,15 @@ public class LeagueServiceImpl implements LeagueService {
         return allLeaguesQuery.getResultList();
 	}
 
+	@Override
+	public League getLeague(String leagueName) {
+		
+		Query query = entityManager.createQuery("select l from League l where l.name=:name");
+	    query.setParameter("name", leagueName);
+
+		League league = (League) query.getSingleResult();
+		
+		return league;
+	}
+
 }

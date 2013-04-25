@@ -15,8 +15,12 @@ import org.junit.runner.RunWith;
 
 import com.tomczyk.football.arquillian.base.RestDeployment;
 import com.tomczyk.football.model.League;
+import com.tomczyk.football.model.Team;
 import com.tomczyk.football.service.impl.LeagueServiceImpl;
 
+/**
+ * Remember: we are using here data from import.sql not from football-datasets.xml
+ */
 @RunWith(Arquillian.class)
 public class LeagueServiceTest {
     
@@ -55,5 +59,35 @@ public class LeagueServiceTest {
         assertEquals("Premiership", allLeagues.get(0).getName());
         assertEquals("Bundesliga", allLeagues.get(1).getName());
     }
+    
+    @Test
+    public void canWeGetALeagueByName() {
+    	
+    	League premiership = leagueService.getLeague("Premiership");
+    	League bundesliga = leagueService.getLeague("Bundesliga");
+    	
+    	assertNotNull(premiership);
+    	assertNotNull(bundesliga);
+    	
+    	assertEquals("Premiership", premiership.getName());
+    	assertEquals("Bundesliga", bundesliga.getName());
+    	
+    }
+    
+    
+    @Test
+    public void canWeFetchPremiershipTeams() {
+        
+    	League premiership = leagueService.getLeague("Premiership");
+    	
+    	assertNotNull(premiership);
+    	
+    	List<Team> premiershipTeams = premiership.getTeams();
+    	
+    	assertEquals("Arsenal", premiershipTeams.get(0).getName());
+    	assertEquals("Tottenham", premiershipTeams.get(1).getName());
+        
+    }
+
     
 }
