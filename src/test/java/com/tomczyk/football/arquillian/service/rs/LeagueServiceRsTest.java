@@ -1,4 +1,4 @@
-package com.tomczyk.football.arqullian.service.rs;
+package com.tomczyk.football.arquillian.service.rs;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
