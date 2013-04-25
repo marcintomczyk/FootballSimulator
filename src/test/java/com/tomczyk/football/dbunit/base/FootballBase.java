@@ -85,7 +85,11 @@ public class FootballBase {
 	@AfterClass
 	public static void tearDownPredefinedData() throws SQLException {
 
-		dbUnitConnection.close();
+		/*
+		 * this statement causes error:
+		 * org.h2.jdbc.JdbcSQLException: The object is already closed
+		 */
+		//dbUnitConnection.close();
 		
 		em.close();
 		emf.close();
