@@ -1,4 +1,4 @@
-package com.tomczyk.football.model;
+package com.tomczyk.football.dbunit.model;
 
 import static org.junit.Assert.assertEquals;
 
@@ -7,7 +7,9 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.tomczyk.football.base.FootballBase;
+import com.tomczyk.football.dbunit.base.FootballBase;
+import com.tomczyk.football.model.League;
+import com.tomczyk.football.model.Team;
 
 /**
  * Nothing special here, just creating sample leagues 

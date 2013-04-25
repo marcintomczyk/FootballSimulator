@@ -11,19 +11,32 @@
 
 	<properties>
 		<hibernate-jpa.version>4.2.0.Final</hibernate-jpa.version>
+		<arquillian.version>1.0.3.Final</arquillian.version>
 		<slf4j.version>1.7.5</slf4j.version>
 		<webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.jboss.arquillian</groupId>
+				<artifactId>arquillian-bom</artifactId>
+				<version>1.0.3.Final</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<dependencies>
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.10</version>
 			<scope>test</scope>
 		</dependency>
-
 
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -63,7 +76,7 @@
 			<artifactId>jboss-javaee-6.0</artifactId>
 			<version>3.0.2.Final</version>
 			<type>pom</type>
-			<scope>test</scope>
+			<scope>provided</scope>
 		</dependency>
 
 		<!-- CDI -->
@@ -131,6 +144,42 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- Arquillian allows you to test enterprise code such as EJBs and Transactional(JTA) 
+			JPA from JUnit/TestNG -->
+		<dependency>
+			<groupId>org.jboss.arquillian.junit</groupId>
+			<artifactId>arquillian-junit-container</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.as</groupId>
+			<artifactId>jboss-as-arquillian-container-managed</artifactId>
+			<version>7.1.1.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.arquillian.protocol</groupId>
+			<artifactId>arquillian-protocol-servlet</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.shrinkwrap.resolver</groupId>
+			<artifactId>shrinkwrap-resolver-depchain</artifactId>
+			<version>2.0.0-beta-2</version>
+			<type>pom</type>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Jackson Java JSON-processor -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-asl</artifactId>
+			<version>1.9.12</version>
+			<scope>provided</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -148,6 +197,10 @@
 					<target>1.7</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.9</version>
+			</plugin>
 		</plugins>
 	</build>
 	<!-- REPOSITORIES -->
@@ -160,7 +213,7 @@
 
 		<repository>
 			<id>JBossRepo</id>
-			<url>http://repository.jboss.com/maven2/</url>
+			<url>http://repository.jboss.com/maven2</url>
 		</repository>
 
 		<repository>
@@ -184,5 +237,4 @@
 		</repository>
 
 	</repositories>
-
 </project>
