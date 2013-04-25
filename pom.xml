@@ -38,13 +38,6 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-			<scope>provided</scope>
-		</dependency>
-
 		<!-- JPA -->
 
 		<dependency>
@@ -148,15 +141,15 @@
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
-			<version>3.5</version>
+			<version>3.3</version>
 		</dependency>
 
-		<!-- JSF 2 -->
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
 			<version>2.1.20</version>
 		</dependency>
+
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-impl</artifactId>
@@ -187,6 +180,7 @@
 			<artifactId>el-impl</artifactId>
 			<version>2.2</version>
 		</dependency>
+
 
 		<!-- Arquillian allows you to test enterprise code such as EJBs and Transactional(JTA) 
 			JPA from JUnit/TestNG -->
@@ -258,6 +252,12 @@
 		<repository>
 			<id>JBossRepo</id>
 			<url>http://repository.jboss.com/maven2</url>
+		</repository>
+
+		<repository>
+			<id>prime-repo</id>
+			<name>Prime Repo</name>
+			<url>http://repository.primefaces.org</url>
 		</repository>
 
 		<repository>
