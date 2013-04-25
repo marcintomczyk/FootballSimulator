@@ -8,4 +8,6 @@ public interface LeagueService {
 
 	public List<League> getAvailableLeagues();
 	
+	public League getLeague(String leagueName);
+	
 }
