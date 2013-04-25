@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://java.sun.com/xml/ns/persistence
+        http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+    <!-- Cannot be located in the same file as PU for unit testing via dbunit
+    	as it causes problems like: more than one PU is specified,
+    	could not resolve persistenceunit etc.
+    	This is just because we have deployed two persistence units and
+    	there is a problem with deciding which one to use.
+    -->
+	<persistence-unit name="footballJTAPU">
+		<jta-data-source>java:jboss/datasources/footballSimulatorTestDS</jta-data-source>
+		<properties>
+			<!-- Properties for Hibernate -->
+			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
+			<property name="hibernate.show_sql" value="false" />
+		</properties>
+	</persistence-unit>
+
+</persistence>

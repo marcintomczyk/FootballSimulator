@@ -1,4 +1,4 @@
-package com.tomczyk.football.base;
+package com.tomczyk.football.dbunit.base;
 
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+
 import org.apache.log4j.Logger;
 import org.dbunit.DatabaseUnitException;
 import org.dbunit.database.DatabaseConnection;
