@@ -18,12 +18,11 @@
 			columnClasses="label, column">
 
 			<p:selectOneListbox id="availableLeagues"
-				value="#{teamsSelection.league}">
-				<f:selectItem itemLabel="Premiership" itemValue="1" />
-				<f:selectItem itemLabel="Bundesliga" itemValue="2" />
-				<f:selectItem itemLabel="Primera Division" itemValue="3" />
+				value="#{teamsSelection.selectedLeague}" converter="leagueConverter">
+				<f:selectItems value="#{leagueBean.leagues}" var="league"
+				itemValue="#{league}" itemLabel="#{league.name}"/>
 			</p:selectOneListbox>
-
+			
 		</h:panelGrid>
 
 		<p:commandButton id="teamsSelectionSubmitButton" value="Submit"
@@ -33,7 +32,7 @@
 			hideEffect="fade" widgetVar="dlg">
 			<h:panelGrid columns="2" id="displayLeagues">
 				<h:outputText value="Selected League:" />
-				<h:outputText id="selectedLeague" value="#{teamsSelection.league}" />
+				<h:outputText id="selectedLeague" value="#{teamsSelection.selectedLeague}" />
 			</h:panelGrid>
 		</p:dialog>
 	</h:form>

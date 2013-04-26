@@ -1,18 +1,23 @@
 package com.tomczyk.football.view;
 
-import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.inject.Named;
 
-@ManagedBean(name = "teamsSelection")
+import com.tomczyk.football.model.League;
+
+
+@Named("teamsSelection")
+@SessionScoped
 public class TeamsSelectionBean {
 	
-	private String league;
+	private League selectedLeague;
 
-	public String getLeague() {
-		return league;
+	public League getSelectedLeague() {
+		return selectedLeague;
 	}
 
-	public void setLeague(String league) {
-		this.league = league;
+	public void setSelectedLeague(League selectedLeague) {
+		this.selectedLeague = selectedLeague;
 	}
 
 }
