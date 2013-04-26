@@ -18,5 +18,13 @@
 	<logger name="com.tomczyk.football">
 		<level value="debug" />
 	</logger>
+	
+	<logger name="javax.ejb">
+		<level value="debug" />
+	</logger>
+	
+	<logger name="javax.enterprise">
+		<level value="debug" />
+	</logger>
 
 </log4j:configuration>
