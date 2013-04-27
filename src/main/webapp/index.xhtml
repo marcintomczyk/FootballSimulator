@@ -19,19 +19,31 @@
 			<f:converter binding="#{leagueConverter}" />
 			<f:selectItems value="#{leagueBean.leagues}" var="league"
 				itemValue="#{league}" itemLabel="#{league.name}" />
+			<f:ajax render="@form" />
 		</p:selectOneListbox>
 
-		<p:commandButton id="teamsSelectionSubmitButton" value="Submit"
-			update="display" oncomplete="dlg.show()" />
+		<p:separator />
 
-		<p:dialog header="Selected Values" modal="true" showEffect="fade"
-			hideEffect="fade" widgetVar="dlg">
-			<h:panelGrid columns="2" id="display">
-				<h:outputText value="League:" />
-				<h:outputText id="selectedLeague"
-					value="#{teamsSelectionBean.selectedLeague.name}" />
-			</h:panelGrid>
-		</p:dialog>
+		<p:selectOneListbox id="availableTeams"
+			value="#{teamsSelectionBean.selectedTeam}">
+			<f:converter binding="#{teamConverter}" />
+			<f:selectItems value="#{teamsSelectionBean.selectedLeague.teams}"
+				var="team" itemValue="#{team}" itemLabel="#{team.name}" />
+			<f:ajax render=":teamsSelectionForm:display" />
+		</p:selectOneListbox>
+
+		<h:panelGrid columns="2" id="display">
+			<h:outputText value="League:" />
+			<h:outputText id="selectedLeague"
+				value="#{teamsSelectionBean.selectedLeague.name}" />
+
+			<h:outputText value="Team:" />
+			<h:outputText id="selectedTeam"
+				value="#{teamsSelectionBean.selectedTeam.name}" />
+
+		</h:panelGrid>
+
+
 	</h:form>
 
 </h:body>
