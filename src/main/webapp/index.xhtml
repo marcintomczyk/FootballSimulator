@@ -5,46 +5,26 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:comp="http://java.sun.com/jsf/composite/components">
 
 <h:head>
 </h:head>
 <h:body>
 	<h1>Welcome to the FootballSimulator project</h1>
 
-	<h:form id="teamsSelectionForm">
-
-		<p:selectOneListbox id="availableLeagues"
-			value="#{teamsSelectionBean.selectedLeague}">
-			<f:converter binding="#{leagueConverter}" />
-			<f:selectItems value="#{leagueBean.leagues}" var="league"
-				itemValue="#{league}" itemLabel="#{league.name}" />
-			<f:ajax render="@form" />
-		</p:selectOneListbox>
-
-		<p:separator />
-
-		<p:selectOneListbox id="availableTeams"
-			value="#{teamsSelectionBean.selectedTeam}" rendered="#{not empty teamsSelectionBean.selectedLeague}">
-			<f:converter binding="#{teamConverter}" />
-			<f:selectItems value="#{teamsSelectionBean.selectedLeague.teams}"
-				var="team" itemValue="#{team}" itemLabel="#{team.name}" />
-			<f:ajax render=":teamsSelectionForm:display" />
-		</p:selectOneListbox>
-
-		<h:panelGrid columns="2" id="display">
-			<h:outputText value="League:" />
-			<h:outputText id="selectedLeague"
-				value="#{teamsSelectionBean.selectedLeague.name}" />
-
-			<h:outputText value="Team:" />
-			<h:outputText id="selectedTeam"
-				value="#{teamsSelectionBean.selectedTeam.name}" />
-
-		</h:panelGrid>
-
-
-	</h:form>
+	<comp:teamSelection
+		leagueSelectionLabel="Select a league: "
+		leagueSelectionList="#{leagueBean.leagues}"
+		selectedLeagueLabel="Selected league: "	
+		selectedLeagueValue="#{teamsSelectionBean.selectedLeague}" 
+		teamSelectionLabel="Select a team: "
+		teamSelectionList="#{teamsSelectionBean.selectedLeague.teams}"
+		selectedTeamLabel="Selected team:"
+		selectedTeamValue="#{teamsSelectionBean.selectedTeam}"
+		leagueConverter="#{leagueConverter}"
+		teamConverter="#{teamConverter}"
+	 	/>
 
 </h:body>
 </html>

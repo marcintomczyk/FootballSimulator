@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+
+<composite:interface>
+
+	<composite:attribute name="leagueSelectionLabel" />
+	<composite:attribute name="leagueSelectionList" />
+	<composite:attribute name="selectedLeagueLabel" />
+	<composite:attribute name="selectedLeagueValue" />
+	<composite:attribute name="teamSelectionLabel" />
+	<composite:attribute name="teamSelectionList" />
+	<composite:attribute name="selectedTeamLabel" />
+	<composite:attribute name="selectedTeamValue" />
+	<composite:attribute name="leagueConverter" />
+	<composite:attribute name="teamConverter" />
+
+</composite:interface>
+
+<composite:implementation>
+
+	<h:form id="teamsSelectionForm">
+
+		<p:selectOneListbox id="availableLeagues"
+			value="#{cc.attrs.selectedLeagueValue}">
+			<f:converter binding="#{cc.attrs.leagueConverter}" />
+			<f:selectItems value="#{cc.attrs.leagueSelectionList}" var="league"
+				itemValue="#{league}" itemLabel="#{league.name}" />
+			<f:ajax render="@form" />
+		</p:selectOneListbox>
+
+
+		<p:selectOneListbox id="availableTeams"
+			value="#{cc.attrs.selectedTeamValue}">
+			<f:converter binding="#{cc.attrs.teamConverter}" />
+			<f:selectItems value="#{cc.attrs.teamSelectionList}" var="team"
+				itemValue="#{team}" itemLabel="#{team.name}" />
+			<f:ajax render="display" />
+		</p:selectOneListbox>
+
+		<h:panelGrid columns="2" id="display">
+			<h:outputText value="#{cc.attrs.selectedLeagueLabel}" />
+			<h:outputText id="selectedLeague"
+				value="#{cc.attrs.selectedLeagueValue.name}" />
+
+			<h:outputText value="#{cc.attrs.selectedTeamLabel}" />
+			<h:outputText id="selectedTeam" value="#{cc.attrs.selectedTeamValue.name}" />
+
+		</h:panelGrid>
+	</h:form>
+
+</composite:implementation>
+
+</html>
