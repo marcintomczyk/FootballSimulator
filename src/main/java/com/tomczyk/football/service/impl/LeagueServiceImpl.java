@@ -12,7 +12,7 @@ import com.tomczyk.football.service.LeagueService;
 
 @ApplicationScoped
 public class LeagueServiceImpl implements LeagueService {
-
+	
 	@Inject
     EntityManager entityManager;
 	
@@ -34,5 +34,13 @@ public class LeagueServiceImpl implements LeagueService {
 		
 		return league;
 	}
+	
+	@Override
+	public League getLeague(Long id) {
+		
+		League league = entityManager.find(League.class, id);
+		
+		return league;
+	}	
 
 }

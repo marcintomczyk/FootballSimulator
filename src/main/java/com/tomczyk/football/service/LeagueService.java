@@ -10,4 +10,6 @@ public interface LeagueService {
 	
 	public League getLeague(String leagueName);
 	
+	public League getLeague(Long id);
+	
 }

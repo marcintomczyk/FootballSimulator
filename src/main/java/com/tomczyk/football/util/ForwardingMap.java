@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Decorator pattern implementation for Map.
+ * Decorator pattern implementation for the Map.
  * 
  * Instead using a inheritance we use composition and forwarding.
  * 

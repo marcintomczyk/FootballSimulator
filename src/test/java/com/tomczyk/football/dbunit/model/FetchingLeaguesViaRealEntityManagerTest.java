@@ -57,4 +57,17 @@ public class FetchingLeaguesViaRealEntityManagerTest extends FootballBase {
 		
 	}
 	
+	@Test
+	public void canWeGetLeagueById() {
+	
+		em.getTransaction().begin();
+
+		League league = em.find(League.class, new Long(1));
+		
+		em.getTransaction().commit();
+		
+		assertEquals("Premiership", league.getName());
+		
+	}
+	
 }

@@ -1,9 +1,11 @@
 package com.tomczyk.football.view;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -11,11 +13,14 @@ import com.tomczyk.football.model.League;
 import com.tomczyk.football.service.LeagueService;
 
 @Named("leagueBean")
-public class LeagueBean {
+@ApplicationScoped
+public class LeagueBean implements Serializable {
+	
+	private static final long serialVersionUID = 4610447129049302941L;
 	
 	@Inject
 	LeagueService leagueService;
-
+	
 	List<League> leagues = new ArrayList<League>();
 
 	public LeagueBean() {
@@ -42,6 +47,6 @@ public class LeagueBean {
 
 	public void setLeagues(List<League> leagues) {
 		this.leagues = leagues;
-	}
+	}	
 
 }

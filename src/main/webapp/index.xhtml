@@ -12,27 +12,24 @@
 <h:body>
 	<h1>Welcome to the FootballSimulator project</h1>
 
-	<h:form id="teamsSelection">
+	<h:form id="teamsSelectionForm">
 
-		<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5"
-			columnClasses="label, column">
-
-			<p:selectOneListbox id="availableLeagues"
-				value="#{teamsSelection.selectedLeague}" converter="leagueConverter">
-				<f:selectItems value="#{leagueBean.leagues}" var="league"
-				itemValue="#{league}" itemLabel="#{league.name}"/>
-			</p:selectOneListbox>
-			
-		</h:panelGrid>
+		<p:selectOneListbox id="availableLeagues"
+			value="#{teamsSelectionBean.selectedLeague}">
+			<f:converter binding="#{leagueConverter}" />
+			<f:selectItems value="#{leagueBean.leagues}" var="league"
+				itemValue="#{league}" itemLabel="#{league.name}" />
+		</p:selectOneListbox>
 
 		<p:commandButton id="teamsSelectionSubmitButton" value="Submit"
-			update="displayLeagues" oncomplete="dlg.show()" />
+			update="display" oncomplete="dlg.show()" />
 
 		<p:dialog header="Selected Values" modal="true" showEffect="fade"
 			hideEffect="fade" widgetVar="dlg">
-			<h:panelGrid columns="2" id="displayLeagues">
-				<h:outputText value="Selected League:" />
-				<h:outputText id="selectedLeague" value="#{teamsSelection.selectedLeague}" />
+			<h:panelGrid columns="2" id="display">
+				<h:outputText value="League:" />
+				<h:outputText id="selectedLeague"
+					value="#{teamsSelectionBean.selectedLeague.name}" />
 			</h:panelGrid>
 		</p:dialog>
 	</h:form>

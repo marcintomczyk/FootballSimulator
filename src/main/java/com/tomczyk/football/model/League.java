@@ -11,14 +11,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-/**
- * <p>
- * A League represents a list of teams.
- * </p>
- * 
- * @author Marcin Tomczyk
- */
-
 @Entity
 public class League {
 
