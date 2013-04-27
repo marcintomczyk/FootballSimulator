@@ -25,7 +25,7 @@
 		<p:separator />
 
 		<p:selectOneListbox id="availableTeams"
-			value="#{teamsSelectionBean.selectedTeam}">
+			value="#{teamsSelectionBean.selectedTeam}" rendered="#{not empty teamsSelectionBean.selectedLeague}">
 			<f:converter binding="#{teamConverter}" />
 			<f:selectItems value="#{teamsSelectionBean.selectedLeague.teams}"
 				var="team" itemValue="#{team}" itemLabel="#{team.name}" />
