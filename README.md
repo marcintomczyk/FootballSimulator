@@ -7,6 +7,7 @@ This is a project which is some kind of a 'training ground' for technologies.
 
 2. http://localhost:8080/h2console
  - jdbc:h2:mem:FootballSimulator
+ 
 
 3. Under "WEB-INF" folder it is a file named "jboss-deployment-structure.xml"
   - without this file you will see only INFO levels (log4j) on the console.
