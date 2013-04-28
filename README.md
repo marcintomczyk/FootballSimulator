@@ -20,4 +20,4 @@ Without this file you will see only INFO levels (log4j) on the console.
 JBoss 7.1.1 requires this file with excluded log4j and slf4j (if used) for log4j/slf4j to work properly
 
 - f:ajax render=":teamsSelectionForm:display"
-	- 'render' works properly if not used in composite components. Does not work however if used inside a component, use render="display" instead.
+	- 'render' in the above form (:teamsSelectionForm:display) works properly if not used in composite components. Does not work however if used inside a component, use render="display" instead.
