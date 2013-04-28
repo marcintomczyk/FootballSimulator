@@ -12,33 +12,44 @@ import com.tomczyk.football.model.Team;
 @SessionScoped
 public class TeamsSelectionBean implements Serializable {
 
-	private static final long serialVersionUID = -1643101356057503953L;
+	private static final long serialVersionUID = -3474481804953347152L;
 
-	private League selectedLeague;
+	private League selectedLeague1;
+	private League selectedLeague2;
 
-	private Team selectedTeam;
+	private Team selectedTeam1;
+	private Team selectedTeam2;
 
-	public League getSelectedLeague() {
-
-		return selectedLeague;
+	public League getSelectedLeague1() {
+		return selectedLeague1;
 	}
 
-	public void setSelectedLeague(League selectedLeague) {
-
-		this.selectedLeague = selectedLeague;
-
+	public void setSelectedLeague1(League selectedLeague1) {
+		this.selectedLeague1 = selectedLeague1;
 	}
 
-	public Team getSelectedTeam() {
-		
-		return selectedTeam;
-		
+	public League getSelectedLeague2() {
+		return selectedLeague2;
 	}
 
-	public void setSelectedTeam(Team selectedTeam) {
-		
-		this.selectedTeam = selectedTeam;
-		
+	public void setSelectedLeague2(League selectedLeague2) {
+		this.selectedLeague2 = selectedLeague2;
+	}
+
+	public Team getSelectedTeam1() {
+		return selectedTeam1;
+	}
+
+	public void setSelectedTeam1(Team selectedTeam1) {
+		this.selectedTeam1 = selectedTeam1;
+	}
+
+	public Team getSelectedTeam2() {
+		return selectedTeam2;
+	}
+
+	public void setSelectedTeam2(Team selectedTeam2) {
+		this.selectedTeam2 = selectedTeam2;
 	}
 
 }
