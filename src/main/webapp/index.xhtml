@@ -11,20 +11,37 @@
 <h:head>
 </h:head>
 <h:body>
-	<h1>Welcome to the FootballSimulator project</h1>
+	<ui:composition template="layout/mainLayout.xhtml">
 
-	<comp:teamSelection
-		leagueSelectionLabel="Select a league: "
-		leagueSelectionList="#{leagueBean.leagues}"
-		selectedLeagueLabel="Selected league: "	
-		selectedLeagueValue="#{teamsSelectionBean.selectedLeague}" 
-		teamSelectionLabel="Select a team: "
-		teamSelectionList="#{teamsSelectionBean.selectedLeague.teams}"
-		selectedTeamLabel="Selected team:"
-		selectedTeamValue="#{teamsSelectionBean.selectedTeam}"
-		leagueConverter="#{leagueConverter}"
-		teamConverter="#{teamConverter}"
-	 	/>
+		<ui:define name="content">
 
+			<div id="contentLeftColumn">
+				<comp:teamSelection leagueSelectionLabel="Select a league: "
+					leagueSelectionList="#{leagueBean.leagues}"
+					selectedLeagueLabel="Selected league: "
+					selectedLeagueValue="#{teamsSelectionBean.selectedLeague}"
+					teamSelectionLabel="Select a team: "
+					teamSelectionList="#{teamsSelectionBean.selectedLeague.teams}"
+					selectedTeamLabel="Selected team:"
+					selectedTeamValue="#{teamsSelectionBean.selectedTeam}"
+					leagueConverter="#{leagueConverter}"
+					teamConverter="#{teamConverter}" />
+			</div>
+			
+			<div id="contentRightColumn">
+				<comp:teamSelection leagueSelectionLabel="Select a league: "
+					leagueSelectionList="#{leagueBean.leagues}"
+					selectedLeagueLabel="Selected league: "
+					selectedLeagueValue="#{teamsSelectionBean.selectedLeague}"
+					teamSelectionLabel="Select a team: "
+					teamSelectionList="#{teamsSelectionBean.selectedLeague.teams}"
+					selectedTeamLabel="Selected team:"
+					selectedTeamValue="#{teamsSelectionBean.selectedTeam}"
+					leagueConverter="#{leagueConverter}"
+					teamConverter="#{teamConverter}" />
+			</div>
+		</ui:define>
+
+	</ui:composition>
 </h:body>
 </html>
