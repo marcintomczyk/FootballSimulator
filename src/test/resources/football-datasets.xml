@@ -1,11 +1,36 @@
 <?xml version='1.0' encoding='UTF-8'?>
 
 <dataset>
+    
+    <!-- Available leagues -->
+	
 	<league id="1" name="Premiership" />
 	<league id="2" name="Bundesliga" />
 	
-	<team name="Arsenal" league_id="1" />
-	<team name="Tottenham" league_id="1" />
-	<team name="Bayern Munchen" league_id="2" />
-	<team name="HSV" league_id="2" />	
+	<!-- Available teams -->
+	
+	<team id="1" name="Arsenal" league_id="1" />
+	<team id="2" name="Tottenham" league_id="1" />
+	<team id="3" name="Chelsea" league_id="1" />
+	<team id="4" name="Borussia Dortmund" league_id="2" />
+	<team id="5" name="HSV" league_id="2" />
+	<team id="6" name="Bayern Munchen" league_id="2" />
+	
+	<!-- Available players -->
+	
+	<!-- Arsenal's players -->
+	
+	<player id="1" first_name="Wojciech" last_name="Szczęsny" age="23" team_id="1"/>
+	<player id="2" first_name="Łukasz" last_name="Fabiański" age="28" team_id="1"/>
+	
+	<!-- Borussia Dortmund's players -->
+	
+	<player id="3" first_name="Robert" last_name="Lewandowski" age="24" team_id="4"/>
+	<player id="4" first_name="Jakub" last_name="Błaszczykowski" age="27" team_id="4"/>
+	<player id="5" first_name="Łukasz" last_name="Piszczek" age="28" team_id="4"/>
+	    
+	<!-- Bayern Munchen's players -->
+	
+	<player id="6" first_name="Franck" last_name="Ribery" age="30" team_id="6"/>
+	
 </dataset>

@@ -67,8 +67,9 @@ public class FetchingTeamsViaRealEntityManagerTest extends FootballBase {
 		  
 		em.getTransaction().commit();
 		
-		assertEquals("Bayern Munchen", teams.get(0).getName());
+		assertEquals("Borussia Dortmund", teams.get(0).getName());
 		assertEquals("HSV", teams.get(1).getName());
+		assertEquals("Bayern Munchen", teams.get(2).getName());
 				
 	}
 
