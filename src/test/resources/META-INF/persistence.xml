@@ -13,6 +13,8 @@
 		<class>com.tomczyk.football.model.League</class>
 		<class>com.tomczyk.football.model.Team</class>
 		<class>com.tomczyk.football.model.Player</class>
+		<class>com.tomczyk.football.model.Skill</class>
+		<class>com.tomczyk.football.model.dictionary.SkillType</class>
 		<properties>
 			<property name="hibernate.connection.url"
 				value="jdbc:h2:mem:FootballSimulatorTest;DB_CLOSE_DELAY=-1" />

@@ -25,3 +25,41 @@ insert into Player(first_name, last_name, age, team_id) values ('Łukasz', 'Pisz
 
 -- Bayern Munchen's players
 insert into Player(first_name, last_name, age, team_id) values ('Franck', 'Ribery', 30, 6)
+
+-- all available skills
+insert into SkillType(name) values ('Passing')
+insert into SkillType(name) values ('Shooting')
+insert into SkillType(name) values ('Technique')
+insert into SkillType(name) values ('Kicking')
+insert into SkillType(name) values ('Dribbling')
+insert into SkillType(name) values ('Aggression')
+insert into SkillType(name) values ('Concentration')
+insert into SkillType(name) values ('Teamwork')
+insert into SkillType(name) values ('Acceleration')
+insert into SkillType(name) values ('Stamina')
+insert into SkillType(name) values ('Agility')
+insert into SkillType(name) values ('Jumping')
+insert into SkillType(name) values ('Heading')
+
+-- player's skills
+
+-- player '1'
+insert into Skill(level, player_id, skill_type_id) values (5,1,1)
+insert into Skill(level, player_id, skill_type_id) values (3,1,2)
+insert into Skill(level, player_id, skill_type_id) values (4,1,3)
+insert into Skill(level, player_id, skill_type_id) values (4,1,4)
+insert into Skill(level, player_id, skill_type_id) values (4,1,5)
+insert into Skill(level, player_id, skill_type_id) values (4,1,6)
+insert into Skill(level, player_id, skill_type_id) values (4,1,7)
+insert into Skill(level, player_id, skill_type_id) values (4,1,8)
+insert into Skill(level, player_id, skill_type_id) values (4,1,9)
+insert into Skill(level, player_id, skill_type_id) values (4,1,10)
+insert into Skill(level, player_id, skill_type_id) values (4,1,11)
+insert into Skill(level, player_id, skill_type_id) values (4,1,12)
+insert into Skill(level, player_id, skill_type_id) values (4,1,13)
+
+	
+-- player '2'
+insert into Skill(level, player_id, skill_type_id) values (4,2,1)
+insert into Skill(level, player_id, skill_type_id) values (4,2,2)
+insert into Skill(level, player_id, skill_type_id) values (4,2,3)
