@@ -14,7 +14,9 @@
 		<class>com.tomczyk.football.model.Team</class>
 		<class>com.tomczyk.football.model.Player</class>
 		<class>com.tomczyk.football.model.Skill</class>
+		<class>com.tomczyk.football.model.Position</class>
 		<class>com.tomczyk.football.model.dictionary.SkillType</class>
+		<class>com.tomczyk.football.model.dictionary.PositionType</class>
 		<properties>
 			<property name="hibernate.connection.url"
 				value="jdbc:h2:mem:FootballSimulatorTest;DB_CLOSE_DELAY=-1" />

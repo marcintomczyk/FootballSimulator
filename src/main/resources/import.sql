@@ -63,3 +63,26 @@ insert into Skill(level, player_id, skill_type_id) values (4,1,13)
 insert into Skill(level, player_id, skill_type_id) values (4,2,1)
 insert into Skill(level, player_id, skill_type_id) values (4,2,2)
 insert into Skill(level, player_id, skill_type_id) values (4,2,3)
+
+
+-- all available positions
+insert into PositionType(name) values ('Goalkeeper')
+insert into PositionType(name) values ('Defender')
+insert into PositionType(name) values ('Midfielder')
+insert into PositionType(name) values ('Forward')
+
+-- player's positions
+
+-- player '1'
+insert into Position(preferred, player_id, position_type_id) values (true,1,1)
+
+-- player '2'
+insert into Position(preferred, player_id, position_type_id) values (true,2,1)
+
+-- player '3'
+insert into Position(preferred, player_id, position_type_id) values (true,3,4)
+insert into Position(preferred, player_id, position_type_id) values (false,3,3)
+
+-- player '4'
+insert into Position(preferred, player_id, position_type_id) values (true,4,3)
+insert into Position(preferred, player_id, position_type_id) values (false,4,4)

@@ -71,5 +71,27 @@
 	<skill id="15" level="4" player_id="2" skill_type_id="2" />
 	<skill id="16" level="4" player_id="2" skill_type_id="3" />
 	
+	<!--  All available positions -->
+	<positionType id="1" name="Goalkeeper"/>
+	<positionType id="2" name="Defender"/>
+	<positionType id="3" name="Midfielder"/>
+	<positionType id="4" name="Forward"/>
+
+	<!-- selected positions for selected players -->
+
+	<!-- Player '1' -->
+	<position id="1" preferred="true" player_id="1" position_type_id="1" />
 	
+	<!-- Player '2' -->
+	<position id="2" preferred="true" player_id="2" position_type_id="1" />
+	
+	<!-- Player '3' -->
+	<position id="3" preferred="true" player_id="3" position_type_id="4" />
+	<position id="4" preferred="false" player_id="3" position_type_id="3" />
+	
+	<!-- Player '4' -->
+	<position id="5" preferred="true" player_id="4" position_type_id="3" />
+	<position id="6" preferred="false" player_id="4" position_type_id="4" />
+	
+		
 </dataset>

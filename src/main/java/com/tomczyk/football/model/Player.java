@@ -36,6 +36,9 @@ public class Player {
 	@OneToMany(mappedBy = "player", cascade=CascadeType.PERSIST, fetch=FetchType.LAZY)
 	private List<Skill> skills;
 	
+	@OneToMany(mappedBy = "player", cascade=CascadeType.PERSIST, fetch=FetchType.LAZY)
+	private List<Position> positions;
+	
 	public Long getId() {
 		return id;
 	}
@@ -82,6 +85,14 @@ public class Player {
 
 	public void setSkills(List<Skill> skills) {
 		this.skills = skills;
+	}
+
+	public List<Position> getPositions() {
+		return positions;
+	}
+
+	public void setPositions(List<Position> positions) {
+		this.positions = positions;
 	}
 	
 }

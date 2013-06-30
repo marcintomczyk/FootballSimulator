@@ -8,32 +8,32 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.tomczyk.football.model.dictionary.PositionType;
 import com.tomczyk.football.model.dictionary.SkillType;
 
 /**
  * 
- * Player's skill
+ * Player's position
+ * 
+ * Player can play on different positions
  *
  */
 @Entity
-public class Skill {
+public class Position {
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	private Long id;
 
-	/*
-	 * value from 0 to 10
-	 */
-	private Integer level;
+	private boolean preferred;
 	
 	@ManyToOne
 	@JoinColumn(name = "player_id")
 	private Player player;
 	
 	@ManyToOne
-	@JoinColumn(name = "skill_type_id")
-	private SkillType skillType;
+	@JoinColumn(name = "position_type_id")
+	private PositionType positionType;
 
 	public Long getId() {
 		return id;
@@ -41,14 +41,6 @@ public class Skill {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Integer getLevel() {
-		return level;
-	}
-
-	public void setLevel(Integer level) {
-		this.level = level;
 	}
 
 	public Player getPlayer() {
@@ -59,12 +51,20 @@ public class Skill {
 		this.player = player;
 	}
 
-	public SkillType getSkillType() {
-		return skillType;
+	public boolean isPreferred() {
+		return preferred;
 	}
 
-	public void setSkillType(SkillType skillType) {
-		this.skillType = skillType;
+	public void setPreferred(boolean preferred) {
+		this.preferred = preferred;
+	}
+
+	public PositionType getPositionType() {
+		return positionType;
+	}
+
+	public void setPositionType(PositionType positionType) {
+		this.positionType = positionType;
 	}
 	
 }
