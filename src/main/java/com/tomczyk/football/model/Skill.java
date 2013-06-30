@@ -13,6 +13,8 @@ import com.tomczyk.football.model.dictionary.SkillType;
 /**
  * 
  * Player's skill
+ * 
+ * Player can have many skills
  *
  */
 @Entity
