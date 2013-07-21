@@ -1,88 +1,20 @@
--- Premiership
-insert into League (name) values ( 'Premiership')
+-- this 'runscript' statement is mainly because an initial import.sql with the 'insert' statements 
+-- resulted in the ComparisonException while comparing strings containings 'ę' chars etc using arquillian testing
+-- It looks like a problem with storing data in a correct format (a charset 'UTF-8' not set ?)
+-- workspace's, project's, file's properties etc. have utf-8 encoding
+-- What's interesting: 
+-- import.sql with the 'insert' statements works 'ok' if the application is run on server (we can see the correct data using h2console)
 
--- Bundesliga
-insert into League (name) values ( 'Bundesliga')
+-- SOLUTION:
+-- As below: just using RUNSCRIPT statement and put initial 'insert' statements into a separate file (initial_data.sql)
+-- in this way it is not the 'hbm2ddl' tool which makes 'inserts' but the h2 engine itself.
+-- According the h2 docs, h2 uses internally utf8 encoding
+-- you can notice I did not set encoding in the initial_data.sql file
 
--- Teams in Premiership
-insert into Team(name, league_id) values ('Arsenal', 1)
-insert into Team(name, league_id) values ('Tottenham', 1)
-insert into Team(name, league_id) values ('Chelsea', 1)
+-- Another possible solution is to use import from csv file
 
--- Teams in Bundesliga
-insert into Team(name, league_id) values ('Borussia Dortmund', 2)
-insert into Team(name, league_id) values ('HSV', 2)
-insert into Team(name, league_id) values ('Bayern Munchen', 2)
+-- TO BE DONE: move RUNSCRIPT to connection url - in this case we do not need import.sql at all
 
--- Arsenal's players
-insert into Player(first_name, last_name, age, team_id) values ('Wojciech', 'Szczęsny', 23, 1)
-insert into Player(first_name, last_name, age, team_id) values ('Łukasz', 'Fabiański', 28, 1)
-
--- Borussia Dortmund's players
-insert into Player(first_name, last_name, age, team_id) values ('Robert', 'Lewandowski', 24, 4)
-insert into Player(first_name, last_name, age, team_id) values ('Jakub', 'Błaszczykowski', 27, 4)
-insert into Player(first_name, last_name, age, team_id) values ('Łukasz', 'Piszczek', 28, 4)
-
--- Bayern Munchen's players
-insert into Player(first_name, last_name, age, team_id) values ('Franck', 'Ribery', 30, 6)
-
--- all available skills
-insert into SkillType(name) values ('Passing')
-insert into SkillType(name) values ('Shooting')
-insert into SkillType(name) values ('Technique')
-insert into SkillType(name) values ('Kicking')
-insert into SkillType(name) values ('Dribbling')
-insert into SkillType(name) values ('Aggression')
-insert into SkillType(name) values ('Concentration')
-insert into SkillType(name) values ('Teamwork')
-insert into SkillType(name) values ('Acceleration')
-insert into SkillType(name) values ('Stamina')
-insert into SkillType(name) values ('Agility')
-insert into SkillType(name) values ('Jumping')
-insert into SkillType(name) values ('Heading')
-
--- player's skills
-
--- player '1'
-insert into Skill(level, player_id, skill_type_id) values (5,1,1)
-insert into Skill(level, player_id, skill_type_id) values (3,1,2)
-insert into Skill(level, player_id, skill_type_id) values (4,1,3)
-insert into Skill(level, player_id, skill_type_id) values (4,1,4)
-insert into Skill(level, player_id, skill_type_id) values (4,1,5)
-insert into Skill(level, player_id, skill_type_id) values (4,1,6)
-insert into Skill(level, player_id, skill_type_id) values (4,1,7)
-insert into Skill(level, player_id, skill_type_id) values (4,1,8)
-insert into Skill(level, player_id, skill_type_id) values (4,1,9)
-insert into Skill(level, player_id, skill_type_id) values (4,1,10)
-insert into Skill(level, player_id, skill_type_id) values (4,1,11)
-insert into Skill(level, player_id, skill_type_id) values (4,1,12)
-insert into Skill(level, player_id, skill_type_id) values (4,1,13)
-
-	
--- player '2'
-insert into Skill(level, player_id, skill_type_id) values (4,2,1)
-insert into Skill(level, player_id, skill_type_id) values (4,2,2)
-insert into Skill(level, player_id, skill_type_id) values (4,2,3)
-
-
--- all available positions
-insert into PositionType(name) values ('Goalkeeper')
-insert into PositionType(name) values ('Defender')
-insert into PositionType(name) values ('Midfielder')
-insert into PositionType(name) values ('Forward')
-
--- player's positions
-
--- player '1'
-insert into Position(preferred, player_id, position_type_id) values (true,1,1)
-
--- player '2'
-insert into Position(preferred, player_id, position_type_id) values (true,2,1)
-
--- player '3'
-insert into Position(preferred, player_id, position_type_id) values (true,3,4)
-insert into Position(preferred, player_id, position_type_id) values (false,3,3)
-
--- player '4'
-insert into Position(preferred, player_id, position_type_id) values (true,4,3)
-insert into Position(preferred, player_id, position_type_id) values (false,4,4)
+-- absolute path works
+-- classpath:initial_data.sql does not work
+RUNSCRIPT FROM '~\workspaces\jsf\FootballSimulator\src\main\resources\initial_data.sql'
