@@ -24,8 +24,11 @@
 					teamSelectionList="#{teamsSelectionBean.selectedLeague1.teams}"
 					selectedTeamLabel="Selected team:"
 					selectedTeamValue="#{teamsSelectionBean.selectedTeam1}"
+					playerSelectionLabel="Select a player: "
+					playerSelectionList="#{teamsSelectionBean.selectedTeam1.players}"
 					leagueConverter="#{leagueConverter}"
-					teamConverter="#{teamConverter}" />
+					teamConverter="#{teamConverter}" 
+					playerConverter="#{playerConverter}" />
 			</div>
 			
 			<div id="contentRightColumn">
@@ -37,8 +40,11 @@
 					teamSelectionList="#{teamsSelectionBean.selectedLeague2.teams}"
 					selectedTeamLabel="Selected team:"
 					selectedTeamValue="#{teamsSelectionBean.selectedTeam2}"
+					playerSelectionLabel="Select a player: "
+					playerSelectionList="#{teamsSelectionBean.selectedTeam2.players}"
 					leagueConverter="#{leagueConverter}"
-					teamConverter="#{teamConverter}" />
+					teamConverter="#{teamConverter}"
+					playerConverter="#{playerConverter}" />
 			</div>
 		</ui:define>
 
