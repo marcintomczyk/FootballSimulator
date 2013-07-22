@@ -3,10 +3,12 @@ package com.tomczyk.football.view;
 import java.io.Serializable;
 
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.tomczyk.football.model.League;
 import com.tomczyk.football.model.Team;
+import com.tomczyk.football.service.TeamService;
 
 @Named("teamsSelectionBean")
 @SessionScoped
@@ -14,11 +16,36 @@ public class TeamsSelectionBean implements Serializable {
 
 	private static final long serialVersionUID = -3474481804953347152L;
 
+	@Inject
+	TeamService teamService;
+
 	private League selectedLeague1;
 	private League selectedLeague2;
 
 	private Team selectedTeam1;
 	private Team selectedTeam2;
+
+	/*
+	 * Using this method we omit the 'LazyInitializationException'
+	 */
+	public Team getTeam1ByQuery() {
+
+		if (selectedTeam1 != null) {
+
+			return teamService.getTeamByIdWithJoinFetch(selectedTeam1.getId());
+		}
+
+		return null;
+	}
+
+	public Team getTeam2ByQuery() {
+		if (selectedTeam2 != null) {
+
+			return teamService.getTeamByIdWithJoinFetch(selectedTeam2.getId());
+		}
+
+		return null;
+	}
 
 	public League getSelectedLeague1() {
 		return selectedLeague1;
@@ -50,6 +77,14 @@ public class TeamsSelectionBean implements Serializable {
 
 	public void setSelectedTeam2(Team selectedTeam2) {
 		this.selectedTeam2 = selectedTeam2;
+	}
+
+	public TeamService getTeamService() {
+		return teamService;
+	}
+
+	public void setTeamService(TeamService teamService) {
+		this.teamService = teamService;
 	}
 
 }

@@ -3,17 +3,16 @@ package com.tomczyk.football.model;
 import static javax.persistence.GenerationType.IDENTITY;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
 
 @Entity
 public class Team {
@@ -31,9 +30,7 @@ public class Team {
 	/**
 	 * All players in the team
 	 */
-	//@OneToMany(mappedBy = "team", cascade=CascadeType.PERSIST, fetch=FetchType.LAZY)
-	@OneToMany(mappedBy = "team", cascade=CascadeType.PERSIST)
-	@LazyCollection(LazyCollectionOption.FALSE)
+	@OneToMany(mappedBy = "team", cascade=CascadeType.PERSIST, fetch=FetchType.LAZY)
 	private List<Player> players;
 
 	public Long getId() {
@@ -59,7 +56,7 @@ public class Team {
 	public void setLeague(League league) {
 		this.league = league;
 	}
-	
+
 	public List<Player> getPlayers() {
 		return players;
 	}

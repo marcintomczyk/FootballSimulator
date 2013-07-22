@@ -6,4 +6,5 @@ public interface TeamService {
 	
 	public Team getTeam(Long id);
 	
+	public Team getTeamByIdWithJoinFetch(Long id);
 }
