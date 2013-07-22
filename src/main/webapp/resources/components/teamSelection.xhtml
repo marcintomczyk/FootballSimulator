@@ -19,6 +19,8 @@
 	<composite:attribute name="selectedTeamValue" />
 	<composite:attribute name="playerSelectionLabel" />
 	<composite:attribute name="playerSelectionList" />
+	<composite:attribute name="selectedPlayerLabel" />
+	<composite:attribute name="selectedPlayerValue" />
 	<composite:attribute name="leagueConverter" />
 	<composite:attribute name="teamConverter" />
 	<composite:attribute name="playerConverter" />
@@ -62,6 +64,10 @@
 			<h:outputText value="#{cc.attrs.selectedTeamLabel}" />
 			<h:outputText id="selectedTeam"
 				value="#{cc.attrs.selectedTeamValue.name}" />
+
+			<h:outputText value="#{cc.attrs.selectedPlayerLabel}" />
+			<h:outputText id="selectedPlayer"
+				value="#{cc.attrs.selectedPlayerValue.lastName}" />
 
 		</h:panelGrid>
 

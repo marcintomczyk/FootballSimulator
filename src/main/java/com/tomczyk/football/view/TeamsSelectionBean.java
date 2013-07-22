@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.tomczyk.football.model.League;
+import com.tomczyk.football.model.Player;
 import com.tomczyk.football.model.Team;
 import com.tomczyk.football.service.TeamService;
 
@@ -24,6 +25,9 @@ public class TeamsSelectionBean implements Serializable {
 
 	private Team selectedTeam1;
 	private Team selectedTeam2;
+
+	private Player selectedPlayer1;
+	private Player selectedPlayer2;
 
 	/*
 	 * Using this method we omit the 'LazyInitializationException'
@@ -77,6 +81,22 @@ public class TeamsSelectionBean implements Serializable {
 
 	public void setSelectedTeam2(Team selectedTeam2) {
 		this.selectedTeam2 = selectedTeam2;
+	}
+
+	public Player getSelectedPlayer1() {
+		return selectedPlayer1;
+	}
+
+	public void setSelectedPlayer1(Player selectedPlayer1) {
+		this.selectedPlayer1 = selectedPlayer1;
+	}
+
+	public Player getSelectedPlayer2() {
+		return selectedPlayer2;
+	}
+
+	public void setSelectedPlayer2(Player selectedPlayer2) {
+		this.selectedPlayer2 = selectedPlayer2;
 	}
 
 	public TeamService getTeamService() {
