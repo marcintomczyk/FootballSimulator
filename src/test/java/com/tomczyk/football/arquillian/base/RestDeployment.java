@@ -11,8 +11,10 @@ import com.tomczyk.football.model.dictionary.PositionType;
 import com.tomczyk.football.model.dictionary.SkillType;
 import com.tomczyk.football.service.LeagueService;
 import com.tomczyk.football.service.PlayerService;
+import com.tomczyk.football.service.TeamService;
 import com.tomczyk.football.service.impl.LeagueServiceImpl;
 import com.tomczyk.football.service.impl.PlayerServiceImpl;
+import com.tomczyk.football.service.impl.TeamServiceImpl;
 import com.tomczyk.football.service.rest.BaseEntityService;
 import com.tomczyk.football.service.rest.LeagueServiceRs;
 import com.tomczyk.football.util.MultivaluedHashMap;
@@ -35,7 +37,9 @@ public class RestDeployment {
 				.addClass(LeagueServiceImpl.class)
 				.addClass(LeagueServiceRs.class)
 				.addClass(PlayerService.class)
-				.addClass(PlayerServiceImpl.class);
+				.addClass(PlayerServiceImpl.class)
+				.addClass(TeamService.class)
+				.addClass(TeamServiceImpl.class);
 
 	}
 

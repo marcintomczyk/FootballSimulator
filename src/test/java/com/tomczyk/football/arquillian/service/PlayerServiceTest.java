@@ -43,7 +43,7 @@ public class PlayerServiceTest {
     }
    
     /*
-     * cannot be PlayerService interface as we need a concrete implementations
+     * cannot be PlayerService interface as we need a concrete implementation
      * 
      * putting interface here will cause "Unsatisfied dependency..." errors
      */
@@ -69,7 +69,7 @@ public class PlayerServiceTest {
         assertEquals("Fabiański", arsenalPlayers.get(1).getLastName());*/
     }
     
-    //@Test
+    @Test
     public void canWeGetAPlayerByName() {
     	
     	Player player1 = playerService.getPlayer("Szczęsny");
@@ -84,7 +84,7 @@ public class PlayerServiceTest {
     }
     
     
-    //@Test
+    @Test
     public void canWeGetAPlayerById() {
         
     	Player player5 = playerService.getPlayer(new Long(5));

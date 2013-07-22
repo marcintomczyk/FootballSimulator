@@ -16,13 +16,13 @@ import org.junit.runner.RunWith;
 import com.tomczyk.football.arquillian.base.RestDeployment;
 import com.tomczyk.football.model.League;
 import com.tomczyk.football.model.Team;
-import com.tomczyk.football.service.impl.LeagueServiceImpl;
+import com.tomczyk.football.service.impl.TeamServiceImpl;
 
 /**
  * Remember: we are using here data from import.sql not from football-datasets.xml
  */
 @RunWith(Arquillian.class)
-public class LeagueServiceTest {
+public class TeamServiceTest {
     
 	/*
 	 * There is too little code to define different *Deployment classes
@@ -42,52 +42,29 @@ public class LeagueServiceTest {
     }
    
     /*
-     * cannot be LeagueService interface as we need a concrete implementation
+     * cannot be TeamService interface as we need a concrete implementation
      * 
      * putting interface here will cause "Unsatisfied dependency..." errors
      */
     @Inject
-    private LeagueServiceImpl leagueService;
+    private TeamServiceImpl teamService;
     
     @Test
-    public void canWeFetchAllAvailableLeagues() {
+    public void canWeFetchTeamById() {
         
-    	List<League> allLeagues = leagueService.getAvailableLeagues();
+    	Team team1 = teamService.getTeam(new Long(1));
+    	Team team2 = teamService.getTeam(new Long(2));
+    	Team team3 = teamService.getTeam(new Long(3));
     	
-    	assertNotNull(allLeagues);
-        assertEquals(2, allLeagues.size());
-        assertEquals("Premiership", allLeagues.get(0).getName());
-        assertEquals("Bundesliga", allLeagues.get(1).getName());
-    }
-    
-    @Test
-    public void canWeGetALeagueByName() {
-    	
-    	League premiership = leagueService.getLeague("Premiership");
-    	League bundesliga = leagueService.getLeague("Bundesliga");
-    	
-    	assertNotNull(premiership);
-    	assertNotNull(bundesliga);
-    	
-    	assertEquals("Premiership", premiership.getName());
-    	assertEquals("Bundesliga", bundesliga.getName());
-    	
-    }
-    
-    
-    @Test
-    public void canWeFetchPremiershipTeams() {
+    	assertNotNull(team1);
+        assertEquals("Arsenal", team1.getName());
         
-    	League premiership = leagueService.getLeague("Premiership");
-    	
-    	assertNotNull(premiership);
-    	
-    	List<Team> premiershipTeams = premiership.getTeams();
-    	
-    	assertEquals("Arsenal", premiershipTeams.get(0).getName());
-    	assertEquals("Tottenham", premiershipTeams.get(1).getName());
+        assertNotNull(team2);
+        assertEquals("Tottenham", team2.getName());
+        
+        assertNotNull(team3);
+        assertEquals("Chelsea", team3.getName());
         
     }
-
     
 }
