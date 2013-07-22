@@ -62,11 +62,10 @@ public class PlayerServiceTest {
     	Player p1 = arsenalPlayers.get(0);
     	Player p2 = arsenalPlayers.get(1);
     	
-    	assertEquals("Szcz\u0119sny", p1.getLastName());
+    	//assertEquals("Szcz\u0119sny", p1.getLastName());
+    	assertEquals("Szczęsny", p1.getLastName());
         assertEquals("Fabiański", p2.getLastName());
     	
-    	/*assertEquals("Szczęsny", lastName1);
-        assertEquals("Fabiański", arsenalPlayers.get(1).getLastName());*/
     }
     
     @Test
