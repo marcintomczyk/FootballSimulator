@@ -21,6 +21,7 @@
 	<composite:attribute name="playerSelectionList" />
 	<composite:attribute name="selectedPlayerLabel" />
 	<composite:attribute name="selectedPlayerValue" />
+	<composite:attribute name="availableSkillsLabel" />
 	<composite:attribute name="leagueConverter" />
 	<composite:attribute name="teamConverter" />
 	<composite:attribute name="playerConverter" />
@@ -69,6 +70,17 @@
 			<h:outputText id="selectedPlayer"
 				value="#{cc.attrs.selectedPlayerValue.lastName}" />
 
+			<h:outputText value="#{cc.attrs.availableSkillsLabel}" />
+			<h:dataTable value="#{cc.attrs.selectedPlayerValue.skills}" var="skill">
+   				<h:column>    				
+      			 <f:facet name="header">Name</f:facet>    				
+      			  #{skill.skillType.name}
+   				</h:column>
+			   <h:column>
+			      <f:facet name="header">Level</f:facet>
+			      #{skill.level}
+			   </h:column>
+			</h:dataTable>
 		</h:panelGrid>
 
 	</h:form>

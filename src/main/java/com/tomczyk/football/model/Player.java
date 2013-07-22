@@ -33,7 +33,7 @@ public class Player {
 	@JoinColumn(name = "team_id")
 	private Team team;
 	
-	@OneToMany(mappedBy = "player", cascade=CascadeType.PERSIST, fetch=FetchType.LAZY)
+	@OneToMany(mappedBy = "player", cascade=CascadeType.PERSIST, fetch=FetchType.EAGER)
 	private List<Skill> skills;
 	
 	@OneToMany(mappedBy = "player", cascade=CascadeType.PERSIST, fetch=FetchType.LAZY)
