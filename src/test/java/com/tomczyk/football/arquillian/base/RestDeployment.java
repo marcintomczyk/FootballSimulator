@@ -3,10 +3,8 @@ package com.tomczyk.football.arquillian.base;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 
 import com.tomczyk.football.model.League;
-import com.tomczyk.football.model.Position;
 import com.tomczyk.football.model.Team;
 import com.tomczyk.football.model.dictionary.PositionType;
-import com.tomczyk.football.model.dictionary.SkillType;
 import com.tomczyk.football.service.LeagueService;
 import com.tomczyk.football.service.impl.LeagueServiceImpl;
 import com.tomczyk.football.service.rest.BaseEntityService;
