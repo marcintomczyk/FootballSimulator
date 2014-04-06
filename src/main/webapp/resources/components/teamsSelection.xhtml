@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:comp="http://java.sun.com/jsf/composite/components">
+
+	<composite:interface>
+	
+		<composite:attribute name="leagueSelectionLabel" />
+		<composite:attribute name="leagueSelectionList" />
+		<composite:attribute name="selectedLeagueLabel" />
+		<composite:attribute name="selectedLeagueValue" />
+		<composite:attribute name="teamSelectionLabel" />
+		<composite:attribute name="teamSelectionList" />
+		<composite:attribute name="selectedTeamLabel" />
+		<composite:attribute name="selectedTeamValue" />
+		<composite:attribute name="playerSelectionLabel" />
+		<composite:attribute name="playerSelectionList" />
+		<composite:attribute name="selectedPlayerLabel" />
+		<composite:attribute name="selectedPlayerValue" />
+		<composite:attribute name="availableSkillsLabel" />
+		<composite:attribute name="leagueConverter" />
+		<composite:attribute name="teamConverter" />
+		<composite:attribute name="playerConverter" />
+	
+	</composite:interface>
+
+	<!-- the namespace declared here is a workaround when nesting a component inside a component
+		@see http://stackoverflow.com/questions/10898906/myfoo-tag-library-supports-namespace-http-java-sun-com-jsf-composite-mycom
+	 -->
+	<composite:implementation xmlns:league="http://java.sun.com/jsf/composite/components"
+							  xmlns:team="http://java.sun.com/jsf/composite/components"
+							  xmlns:player="http://java.sun.com/jsf/composite/components">
+	
+		<h:outputText value="#{cc.attrs.leagueSelectionLabel}" />	
+		<league:leagueSelection id="leagueSelection"
+			leagueSelectionList="#{cc.attrs.leagueSelectionList}"
+			selectedLeagueValue="#{cc.attrs.selectedLeagueValue}"
+			leagueConverter="#{cc.attrs.leagueConverter}" />
+
+		<h:outputText value="#{cc.attrs.teamSelectionLabel}" />
+		<team:teamSelection id="teamSelection"
+			teamSelectionList="#{cc.attrs.teamSelectionList}"
+			selectedTeamValue="#{cc.attrs.selectedTeamValue}"
+			teamConverter="#{cc.attrs.teamConverter}" />
+
+		<h:outputText value="#{cc.attrs.playerSelectionLabel}" />
+		<player:playerSelection id="playerSelection"
+			playerSelectionList="#{cc.attrs.playerSelectionList}"
+			selectedPlayerValue="#{cc.attrs.selectedPlayerValue}"
+			playerConverter="#{cc.attrs.playerConverter}" />
+
+		<h:panelGrid columns="2" id="display">
+			<h:outputText value="#{cc.attrs.selectedLeagueLabel}" />
+			<h:outputText id="selectedLeague"
+				value="#{cc.attrs.selectedLeagueValue.name}" />
+
+			<h:outputText value="#{cc.attrs.selectedTeamLabel}" />
+			<h:outputText id="selectedTeam"
+				value="#{cc.attrs.selectedTeamValue.name}" />
+
+			<h:outputText value="#{cc.attrs.selectedPlayerLabel}" />
+			<h:outputText id="selectedPlayer"
+				value="#{cc.attrs.selectedPlayerValue.lastName}" />
+
+			<h:outputText value="#{cc.attrs.availableSkillsLabel}" />
+			<h:dataTable value="#{cc.attrs.selectedPlayerValue.skills}" var="skill">
+   				<h:column>    				
+      			 <f:facet name="header">Name</f:facet>    				
+      			  #{skill.skillType.name}
+   				</h:column>
+			   <h:column>
+			      <f:facet name="header">Level</f:facet>
+			      #{skill.level}
+			   </h:column>
+			</h:dataTable>
+		</h:panelGrid>
+	</composite:implementation>
+
+</html>
